@@ -9,7 +9,7 @@ fi
 
 if [ $1 == start ]
 then
-  docker-compose -f $DOCKER_COMPOSE_FILE up -d
+  docker compose -f $DOCKER_COMPOSE_FILE up -d
   STATUS=$?
   if [ $STATUS -eq 0 ]
   then
@@ -19,7 +19,7 @@ then
   fi
 elif [ $1 == stop ]
 then
-  docker-compose -f $DOCKER_COMPOSE_FILE down
+  docker compose -f $DOCKER_COMPOSE_FILE down
   STATUS=$?
   if [ $STATUS -eq 0 ]
   then
@@ -29,7 +29,7 @@ then
   fi
 elif [ $1 == info ]
 then
-  docker-compose -f $DOCKER_COMPOSE_FILE logs --follow
+  docker compose -f $DOCKER_COMPOSE_FILE logs --follow
 elif [ $1 == scale ]
 then
   if [ -z "$2" ]
@@ -37,7 +37,7 @@ then
     echo -e "Number of total instances missing; f.e.: \n${0##*/} scale 2"
     exit 1
   else
-    docker-compose -f $DOCKER_COMPOSE_FILE scale flowable-rest-app=$2
+    docker compose -f $DOCKER_COMPOSE_FILE scale flowable-rest-app=$2
     STATUS=$?
     if [ $STATUS -eq 0 ]
     then

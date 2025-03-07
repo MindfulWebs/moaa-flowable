@@ -9,7 +9,7 @@ fi
 
 if [ $1 == start ]
 then
-  docker-compose -f $DOCKER_COMPOSE_FILE up -d
+  docker compose -f $DOCKER_COMPOSE_FILE up -d
   STATUS=$?
   if [ $STATUS -eq 0 ]
   then
@@ -19,7 +19,7 @@ then
   fi
 elif [ $1 == stop ]
 then
-  docker-compose -f $DOCKER_COMPOSE_FILE down
+  docker compose -f $DOCKER_COMPOSE_FILE down
   STATUS=$?
   if [ $STATUS -eq 0 ]
   then
@@ -29,7 +29,7 @@ then
   fi
 elif [ $1 == info ]
 then
-  docker-compose -f $DOCKER_COMPOSE_FILE logs --follow
+  docker compose -f $DOCKER_COMPOSE_FILE logs --follow
 else
   echo -e "Usage: \n${0##*/} start \n${0##*/} stop \n${0##*/} info"
   exit 1
