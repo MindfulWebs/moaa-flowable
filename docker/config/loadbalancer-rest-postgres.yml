@@ -20,7 +20,7 @@ services:
         - "9977"
     entrypoint: ["./wait-for-something.sh", "flowable-db", "5432", "PostgreSQL", "/flowable-entrypoint.sh"]
   flowable-db:
-    image: postgres:9.6-alpine
+    image: postgres:14
     container_name: flowable-postgres
     environment:
         - POSTGRES_PASSWORD=flowable
