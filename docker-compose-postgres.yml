@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=flowable
+      - POSTGRES_USER=flowable
+      - POSTGRES_DB=flowable
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - flowable-network
+
+networks:
+  flowable-network:
+
+volumes:
+  postgres-data:
+    driver: local
